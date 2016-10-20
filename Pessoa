@@ -1,0 +1,59 @@
+package Pessoa;
+
+import entities.Usuario;
+
+public class Pessoa extends Usuario{
+    private double imc;
+
+    public Pessoa(double peso, double altura) {
+        super(peso, altura);
+    }
+
+    public Pessoa(double imc, double peso, double altura) {
+        super(peso, altura);
+        this.imc = imc;
+    }
+
+    
+    public double getImc() {
+        return imc;
+    }
+
+    public void setImc(double imc) {
+        this.imc = imc;
+    }
+    
+    public double calculaIMC(double peso, double altura){
+        this.imc = peso / (altura*altura);
+        return (this.imc);
+    }
+    
+    public void imprimeMasculino(){
+        if((this.imc >= 17.9)&&(this.imc < 18.9)){
+            System.out.println("Classificação: RISCO BAIXO");
+        }
+        if((this.imc >= 19.0)&&(this.imc <24.9)){
+            System.out.println("Classificação: IDEAL");
+        }
+        if((this.imc >= 25.0)&&(this.imc <27.7)){
+            System.out.println("Classificação: RISCO MODERADO");
+        } 
+        if(this.imc >= 27.8){
+            System.out.println("Classificação: RISCO ELEVADO");
+        }
+    }
+    public void imprimeFeminino(){
+        if((this.imc >= 15.0)&&(this.imc < 17.9)){
+            System.out.println("Classificação: RISCO BAIXO");
+        }
+        if((this.imc >= 18.0)&&(this.imc <24.4)){
+            System.out.println("Classificação: IDEAL");
+        }
+        if((this.imc >= 24.5)&&(this.imc <27.2)){
+            System.out.println("Classificação: RISCO MODERADO");
+        } 
+        if(this.imc >= 27.3){
+            System.out.println("Classificação: RISCO ELEVADO");
+        }
+    }
+}

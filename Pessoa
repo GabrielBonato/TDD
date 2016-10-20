@@ -13,7 +13,6 @@ public class Pessoa extends Usuario{
         super(peso, altura);
         this.imc = imc;
     }
-
     
     public double getImc() {
         return imc;

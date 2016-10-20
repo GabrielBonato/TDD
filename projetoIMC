@@ -1,0 +1,79 @@
+package projetoimc;
+
+import Pessoa.Pessoa;
+import entities.Usuario;
+import java.util.Scanner;
+
+public class ProjetoIMC extends Usuario {
+
+    public static void main(String[] args) {
+
+        Pessoa um;
+        Usuario usu = new Usuario();
+
+        usu.setAltura(1);
+        usu.setPeso(1);
+        Scanner sc = new Scanner(System.in);
+        um = new Pessoa(usu.getPeso(), usu.getAltura());
+        int opc = 1;
+        int opcSexual;
+        do {
+        Scanner dado = new Scanner(System.in);
+        System.out.print("\nDigite usa opcão sexual (Ex: Masulino = 1, Feminino = 2): ");
+        opcSexual = dado.nextInt();
+            switch (opcSexual) {
+                case 1:
+                    //do {
+                        while (usu.getPeso() <= 1) {
+                            System.out.print("Digite seu peso ((Ex: 70,34) Obs: Números quebrados exige virgula): ");
+                            usu.setPeso(sc.nextDouble());
+                        }
+
+                        while (usu.getAltura() <= 1) {
+                            System.out.print("Digite sua altura ((Ex: 1,80) Obs: Números quebrados exige virgula): ");
+                            usu.setAltura(sc.nextDouble());
+                        }
+
+                        um.calculaIMC(usu.getPeso(), usu.getAltura());
+                        System.out.println("Resultado do calculo = "+um.calculaIMC(usu.getPeso(), usu.getAltura()));
+                        um.imprimeMasculino();
+
+                        System.out.println("\nDigite 1 para refazer o cálculo do IMC: ");
+                        opc = sc.nextInt();
+                        if (opc == 1) {
+                            usu.setPeso(1);
+                            usu.setAltura(1);
+                        }
+                    //} while (opc == 1);
+                break;
+                case 2:
+                    //do {
+                        while (usu.getPeso() <= 1) {
+                            System.out.print("Digite seu peso ((Ex:60,78) Obs: Números quebrados exige virgula): ");
+                            usu.setPeso(sc.nextDouble());
+                        }
+
+                        while (usu.getAltura() <= 1) {
+                            System.out.print("Digite sua altura ((Ex: 1,80) Obs: Números quebrados exige virgula): ");
+                            usu.setAltura(sc.nextDouble());
+                        }
+
+                        um.calculaIMC(usu.getPeso(), usu.getAltura());
+                        System.out.println("Resultado do calculo = "+um.calculaIMC(usu.getPeso(), usu.getAltura()));
+                        um.imprimeFeminino();
+
+                        System.out.println("\nDigite 1 para refazer o cálculo do IMC: ");
+                        opc = sc.nextInt();
+                        if (opc == 1) {
+                            usu.setPeso(1);
+                            usu.setAltura(1);
+                        }
+                    //} while (opc == 1);
+                break;
+                default:
+                    System.out.println("Este número não é valido, favor digitar o número correto conforme o exemplo acima");
+            }
+
+      } while (opc == 1);  
+    }    
+}
